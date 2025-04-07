@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+	<types>
+		<members>Project_Milestones__c.CompletePercent__c</members>
+		<members>Project_Milestones__c.Due_Date__c</members>
+		<members>Project_Milestones__c.Project__c</members>
+		<members>Project_Milestones__c.Status__c</members>
+		<members>Projects__c.CompletePercent__c</members>
+		<members>Projects__c.Project_Description__c</members>
+		<members>Projects__c.Status__c</members>
+		<members>TO_DO_Items__c.Project_Milestones__c</members>
+		<members>TO_DO_Items__c.Status__c</members>
+		<name>CustomField</name>
+	</types>
+	<types>
+		<members>Project_Milestones__c</members>
+		<members>Projects__c</members>
+		<members>TO_DO_Items__c</members>
+		<name>CustomObject</name>
+	</types>
+	<types>
+		<members>Project_Management1</members>
+		<members>Projects__c</members>
+		<name>CustomTab</name>
+	</types>
+	<types>
+		<members>Project_Management</members>
+		<members>Project_Milestones_Record_Page</members>
+		<members>Projects_Record_Page</members>
+		<name>FlexiPage</name>
+	</types>
+	<types>
+		<members>Update_Milestones_Projects_Completion</members>
+		<members>To_Do_Items_After_Create_Update_Flow</members>
+		<name>Flow</name>
+	</types>
+	<types>
+		<members>Project_Milestones__c-Project Milestones Layout</members>
+		<members>Projects__c-Projects Layout</members>
+		<members>TO_DO_Items__c-TO-DO Items Layout</members>
+		<name>Layout</name>
+	</types>
+	<types>
+		<members>projectCreation</members>
+		<members>projectManagement</members>
+		<name>LightningComponentBundle</name>
+	</types>
+	<types>
+		<members>ProjectCreationChannel</members>
+		<name>LightningMessageChannel</name>
+	</types>
+	<types>
+		<members>Project_Mangement_Permissions</members>
+		<name>PermissionSet</name>
+	</types>
+	<version>63.0</version>
+</Package>

@@ -1,0 +1,35 @@
+<template>
+    <lightning-card>
+        <h3 slot="title">
+            {welcomeText}
+        </h3>
+        <lightning-layout>
+            <lightning-layout-item size="5" padding="around-small">
+                <lightning-combobox label="Do you want to create Project?" options={dropdownOptions}
+                    onchange={handleCreateProject}>
+                </lightning-combobox>
+            </lightning-layout-item>
+        </lightning-layout>
+
+        <lightning-layout>
+            <lightning-layout-item size="5" padding="around-small">
+                <template lwc:if={displayOverview}>
+                    <lightning-combobox label="Do you want an overview for specific Project?" options={dropdownOptions}
+                        onchange={handleOverview}>
+                    </lightning-combobox>
+                </template>
+            </lightning-layout-item>
+        </lightning-layout>
+
+        <template lwc:if={displayProjectInput}>
+            <lightning-layout multiple-rows>
+                <lightning-layout-item size="5" padding="around-small">
+                    <lightning-record-picker label="Project Name" object-api-name="Projects__c"
+                        onchange={handleRecordChange}
+                        field-level-help="Type the first 3 letters to check for existing project details">
+                    </lightning-record-picker>
+                </lightning-layout-item>
+            </lightning-layout>
+        </template>
+    </lightning-card>
+</template>

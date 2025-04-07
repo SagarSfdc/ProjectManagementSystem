@@ -1,0 +1,88 @@
+<template>
+    <template lwc:if={projectToCreate}>
+        <lightning-card title="Create New Project" icon-name="custom:custom62">
+            <lightning-layout>
+                <lightning-layout-item size="5" padding="around-small">
+                    <lightning-record-form object-api-name={objectApiName} fields={fields} onsuccess={handleSuccess}>
+                    </lightning-record-form>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-card>
+    </template>
+
+    <template lwc:if={milestonesToCreate}>
+        <lightning-card title="Create Project Milestones" icon-name="standard:entity_milestone">
+            <template for:each={milestones} for:item="milestone" for:index="index">
+                <lightning-layout key={milestone.key} multiple-rows>
+                    <lightning-layout-item size="3" padding="around-small">
+                        <lightning-input label="Milestone Name" value={milestone.Name} onchange={handleMilestoneName}
+                            data-index={index} required></lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="3" padding="around-small">
+                        <lightning-input type="date" label="Due Date" value={milestone.Due_Date__c}
+                            onchange={handleMilestoneDueDate} data-index={index}></lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="3" padding="around-small">
+                        <lightning-record-picker label="Project Name" object-api-name="Projects__c"
+                            onchange={handleMilestoneProject} value={milestone.Project__c} data-index={index} required>
+                        </lightning-record-picker>
+                    </lightning-layout-item>
+                    <lightning-layout-item padding="around-small" class="slds-m-top_large">
+                        <lightning-button-icon icon-name="action:add_relationship" alternative-text="Add"
+                            onclick={addMilestone} data-index={index}>
+                        </lightning-button-icon>
+                    </lightning-layout-item>
+                    <lightning-layout-item padding="around-small" class="slds-m-top_large">
+                        <lightning-button-icon icon-name="action:delete" alternative-text="Remove"
+                            onclick={removeMilestone} data-index={index}>
+                        </lightning-button-icon>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </template>
+            <lightning:layout multiple-rows>
+                <lightning-layout-item size="3" padding="around-small">
+                    <lightning-button variant="brand" label="Save Milestones" onclick={handleMilestones}>
+                    </lightning-button>
+                </lightning-layout-item>
+            </lightning:layout>
+        </lightning-card>
+    </template>
+
+    <template lwc:if={itemsToCreate}>
+        <lightning-card title="Create TO DO Items" icon-name="action:new_task">
+            <template for:each={items} for:item="item" for:index="index">
+                <lightning-layout key={item.key} multiple-rows>
+                    <lightning-layout-item size="3" padding="around-small">
+                        <lightning-input label="Name" onchange={handleItemName} data-index={index} required>
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="3" padding="around-small">
+                        <lightning-input type="date" label="Due Date" onchange={handleItemDueDate} data-index={index}>
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="3" padding="around-small">
+                        <lightning-record-picker label="Project Milestone" object-api-name="Project_Milestones__c"
+                            onchange={handleItemMilestone} data-index={index} required>
+                        </lightning-record-picker>
+                    </lightning-layout-item>
+                    <lightning-layout-item padding="around-small" class="slds-m-top_large">
+                        <lightning-button-icon icon-name="action:add_relationship" alternative-text="Add"
+                            onclick={addItems} data-index={index}>
+                        </lightning-button-icon>
+                    </lightning-layout-item>
+                    <lightning-layout-item padding="around-small" class="slds-m-top_large">
+                        <lightning-button-icon icon-name="action:delete" alternative-text="Remove" onclick={removeItems}
+                            data-index={index}>
+                        </lightning-button-icon>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </template>
+            <lightning:layout multiple-rows>
+                <lightning-layout-item size="3" padding="around-small">
+                    <lightning-button variant="brand" label="Save TO-DO Items" onclick={handleItems}>
+                    </lightning-button>
+                </lightning-layout-item>
+            </lightning:layout>
+        </lightning-card>
+    </template>
+</template>

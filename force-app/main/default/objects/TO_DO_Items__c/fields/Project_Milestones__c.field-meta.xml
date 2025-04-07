@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Project_Milestones__c</fullName>
+    <description>Field to link TODO Items With Each Project Milestones</description>
+    <label>Project Milestones</label>
+    <referenceTo>Project_Milestones__c</referenceTo>
+    <relationshipLabel>TO-DO Items</relationshipLabel>
+    <relationshipName>TO_DO_Items</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>
